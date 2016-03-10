@@ -2,7 +2,8 @@
   "dependencies": {
     "Caliburn.Micro": "3.0.0",
     "LogoFX.Client.Bootstrapping.Adapters.Contracts": "1.0.4",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0"
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
+    "Solid.Practices.IoC": "1.0.8"
   },
   "frameworks": {
     "uap10.0": {}

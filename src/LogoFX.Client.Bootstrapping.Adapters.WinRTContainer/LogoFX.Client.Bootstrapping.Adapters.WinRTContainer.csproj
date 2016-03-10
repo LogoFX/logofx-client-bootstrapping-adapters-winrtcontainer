@@ -108,6 +108,7 @@
     <None Include="project.lock.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IUniversalAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WinRTContainerAdapter.cs" />
     <EmbeddedResource Include="Properties\LogoFX.Client.Bootstrapping.Adapters.WinRTContainer.rd.xml" />
