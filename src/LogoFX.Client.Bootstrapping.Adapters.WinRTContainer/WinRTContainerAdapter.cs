@@ -13,7 +13,8 @@ namespace LogoFX.Client.Bootstrapping.Adapters.WinRTContainer
     /// <seealso cref="IIocContainer" />
     /// <seealso cref="IBootstrapperAdapter" />
     /// <seealso cref="IUniversalAdapter" />
-    public class WinRTContainerAdapter : IIocContainer, IBootstrapperAdapter , IUniversalAdapter
+    public class WinRTContainerAdapter : IIocContainer, IBootstrapperAdapter, 
+        IIocContainerAdapter<Caliburn.Micro.WinRTContainer>, IUniversalAdapter
     {
         private readonly Caliburn.Micro.WinRTContainer _container;
 
@@ -163,6 +164,16 @@ namespace LogoFX.Client.Bootstrapping.Adapters.WinRTContainer
         }
 
         /// <summary>
+        /// Registers the collection of the dependencies.
+        /// </summary>
+        /// <typeparam name="TService">The type of the service.</typeparam>
+        /// <param name="dependencies">The dependencies.</param>
+        public void RegisterCollection<TService>(IEnumerable<TService> dependencies) where TService : class
+        {
+            _container.RegisterInstance(typeof(IEnumerable<TService>), null, dependencies);
+        }
+
+        /// <summary>
         /// Registers the collection.
         /// </summary>
         /// <param name="dependencyType">Type of the dependency.</param>
@@ -173,6 +184,16 @@ namespace LogoFX.Client.Bootstrapping.Adapters.WinRTContainer
             {
                 _container.RegisterSingleton(dependencyType, null, type);
             }
+        }
+
+        /// <summary>
+        /// Registers the collection of the dependencies.
+        /// </summary>
+        /// <param name="dependencyType">The dependency type.</param>
+        /// <param name="dependencies">The dependencies.</param>
+        public void RegisterCollection(Type dependencyType, IEnumerable<object> dependencies)
+        {
+            throw new NotImplementedException("Not supported");
         }
 
         /// <summary>
