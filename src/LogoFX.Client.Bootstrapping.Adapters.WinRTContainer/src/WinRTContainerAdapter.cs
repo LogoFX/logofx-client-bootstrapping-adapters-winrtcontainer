@@ -193,7 +193,10 @@ namespace LogoFX.Client.Bootstrapping.Adapters.WinRTContainer
         /// <param name="dependencies">The dependencies.</param>
         public void RegisterCollection(Type dependencyType, IEnumerable<object> dependencies)
         {
-            throw new NotImplementedException("Not supported");
+            foreach (var dependency in dependencies)
+            {
+                _container.RegisterInstance(dependencyType, null, dependency);
+            }            
         }
 
         /// <summary>
@@ -224,15 +227,7 @@ namespace LogoFX.Client.Bootstrapping.Adapters.WinRTContainer
         {
             
         }
-
-        /// <summary>
-        /// Registers general services into the container.
-        /// </summary>
-        public void RegisterWinRTServices()
-        {
-            _container.RegisterWinRTServices();
-        }
-
+                
         /// <summary>
         /// Sets the specified frame as the root frame of the navigation.
         /// </summary>

@@ -2,6 +2,10 @@
 
 namespace LogoFX.Client.Bootstrapping.Adapters.WinRTContainer
 {
+    //TODO: to be moved to a separate package LogoFX.Client.Bootstrapping.Adapters
+    //this pkg will be platform-specific and will allow to add functionality
+    //to NETFX_CORE-oriented bootstrappers.
+
     /// <summary>
     /// Represents an adapter to Navigation using Caliburn.Micro facilities.
     /// </summary>
